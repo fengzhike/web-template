@@ -1,0 +1,16 @@
+Global:
+    tool: build_submitter
+Default:
+    profile: [buildTest]
+Profiles:
+    - profile:
+      name: buildOnline
+      env: cmc_standard
+      command: export NODE_ENV=production && sh scripts/build.sh
+      release: true
+
+    - profile:
+      name: buildTest
+      env: cmc_standard
+      command: export NODE_ENV=development && sh scripts/build.sh
+      release: true

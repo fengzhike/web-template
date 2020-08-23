@@ -1,0 +1,60 @@
+{
+    "name": "web-template",
+    "version": "1.0.0",
+    "description": "frontend template",
+    "main": "main.js",
+    "directories": {
+        "doc": "doc"
+    },
+    "scripts": {
+        "dev": "webpack-dev-server --config build/webpack.config.dev.js",
+        "build-test": "webpack --config build/webpack.config.test.js",
+        "build": "webpack --config build/webpack.config.online.js",
+        "analyze": "webpack --config build/webpack.config.online.js --analyze",
+        "build-sh": "sh script/build.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fengzhike/frontend-template.git"
+    },
+    "author": "Fe3o4",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/fengzhike/frontend-template/issues"
+    },
+    "homepage": "https://github.com/fengzhike/frontend-template#readme",
+    "dependencies": {
+        "@babel/polyfill": "^7.8.7",
+        "autoprefixer": "^9.7.5",
+        "axios": "^0.19.2",
+        "css-loader": "^3.4.2",
+        "html-webpack-plugin": "^3.2.0",
+        "less": "^3.11.1",
+        "less-loader": "^5.0.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-loader": "^3.0.0",
+        "style-loader": "^1.1.3",
+        "terser-webpack-plugin": "^3.0.1",
+        "url-loader": "^4.0.0",
+        "vue": "^2.6.11",
+        "vue-loader": "^15.7.0",
+        "vue-router": "^3.1.6",
+        "vue-template-compiler": "^2.6.11",
+        "vuex": "^3.1.3",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3",
+        "webpack-merge": "^4.2.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "svg-sprite-loader": "^4.3.0",
+        "webpack-bundle-analyzer": "^3.7.0",
+        "webpackbar": "^4.0.0"
+    }
+}
