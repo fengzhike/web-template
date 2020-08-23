@@ -15,14 +15,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fengzhike/frontend-template.git"
+        "url": "git+https://github.com/Fantasy15/frontend-template.git"
     },
     "author": "Fe3o4",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/fengzhike/frontend-template/issues"
+        "url": "https://github.com/Fantasy15/frontend-template/issues"
     },
-    "homepage": "https://github.com/fengzhike/frontend-template#readme",
+    "homepage": "https://github.com/Fantasy15/frontend-template#readme",
     "dependencies": {
         "@babel/polyfill": "^7.8.7",
         "autoprefixer": "^9.7.5",

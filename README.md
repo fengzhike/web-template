@@ -9,7 +9,7 @@
 技术栈 webpack + es6 + vue + vue-router + vuex。
 
 #### 文档链接
-- [接口文档](http://www.baidu.com)
+- [接口文档](http://www.yuque.com)
 - [设计稿 && 交互稿](http://www.baidu.com)
 
 #### 开发人员
