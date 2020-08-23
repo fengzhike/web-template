@@ -1,16 +1,18 @@
 /**
  * @file index.js
- * @description 状态入口
+ * @description store 入口
  */
 
-import Vue from 'vue';
-import Vuex from 'vuex';
-Vue.use(Vuex);
+import React from 'react';
+import UserInfo from './modules/userInfo';
+import Main from './modules/main';
 
-import userInfo from './modules/userInfo';
-
-export default new Vuex.Store({
-    modules: {
-        userInfo
+class RootStore {
+    constructor() {
+        this.userStore = new UserInfo(this);
+        this.mainStore = new Main(this);
     }
-});
+}
+
+export const store = new RootStore();
+export const StoreContext = React.createContext({});

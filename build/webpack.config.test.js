@@ -22,7 +22,7 @@ module.exports = () => {
         plugins: [
             new CleanWebpackPlugin(),
             new webpack.DefinePlugin({
-                baseData: JSON.stringify(require('../src/plugin/baseData/baseData.test'))
+                baseData: JSON.stringify(require('../src/baseData/baseData.test'))
             }),
         ],
         performance: {

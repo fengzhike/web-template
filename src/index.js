@@ -1,24 +1,18 @@
 /**
  * @file index.js
- * @description 入口文件
+ * @description 项目初始化入口
  */
 
 import '@babel/polyfill';
-import Vue from 'vue';
-import App from './app.vue';
-import router from './route';
-import store from './store';
 
-import plugin from './plugin';
-Vue.use(plugin);
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app';
 
-Vue.config.performance = baseData.env === 'development';
-
-// import all svgs under ./assets/svg
+import './assets/style/index.less';
 require('./assets/svg');
 
-new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app');
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);

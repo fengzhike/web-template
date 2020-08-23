@@ -6,7 +6,6 @@
 const commonData = require('./commonData');
 
 module.exports = Object.assign(commonData, {
-    env: 'development',
     host: 'http://dev.qq.com',
     //外部链接
     link: {

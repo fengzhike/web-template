@@ -3,25 +3,21 @@
  * @description 路由入口文件
  */
 
-import Vue from 'vue';
-import Router from 'vue-router';
-Vue.use(Router);
+import loadable from '@loadable/component'
 
-const Index = () => import(/* webpackChunkName: "home" */ '../views/index/index.vue');
-const About = () => import(/* webpackChunkName: "about" */ '../views/About/index.vue');
-
-export default new Router({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'index',
-            component: Index
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About
-        }
-    ]
-})
+export default [
+    {
+        key: 'index',
+        path: '/',
+        component: loadable(
+            () => import('../views/index'),
+        )
+    },
+    {
+        key: 'about',
+        path: '/about',
+        component: loadable(
+            () => import('../views/about'),
+        )
+    }
+]

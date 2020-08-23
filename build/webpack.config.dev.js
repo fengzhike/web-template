@@ -15,13 +15,12 @@ module.exports = () => {
         devtool: 'inline-source-map',
         plugins: [
             new webpack.DefinePlugin({
-                baseData: JSON.stringify(require('../src/plugin/baseData/baseData.dev'))
+                baseData: JSON.stringify(require('../src/baseData/baseData.dev'))
             })
         ],
         devServer: {
             contentBase: path.resolve('./'),
             open: true,
-            hot: true,
             historyApiFallback: true,
             proxy: [
                 {
