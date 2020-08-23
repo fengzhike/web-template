@@ -1,24 +1,31 @@
 /**
  * @file userInfo.js
- * @description 用户信息store
+ * @description 用户信息 store
  */
 
-import {observable, computed, action} from 'mobx';
-import http from 'Http';
-export default class UserInfo {
-    constructor(rootStore) {
-        this.rootStore = rootStore;
-    }
+// import http from 'Http';
 
-    @observable userInfo = {
-        name: '张三'
-    };
-
-    @action.bound getUserInfo() {
-        return http.getUserInfo().then(result => {
-            if (result) {
-                this.userInfo = result;
-            }
-        });
+export default {
+    namespaced: true,
+    state: () => ({
+        userInfo: {
+            name: '张三',
+        },
+        count: 1,
+    }),
+    getters: {
+        msg: state => {
+            return `${state.userInfo.name} 是个好同志`;
+        }
+    },
+    actions: {
+        addCount({commit}, num) {
+            commit('addCount', num);
+        }
+    },
+    mutations: {
+        addCount(state, num) {
+            state.count += num;
+        }
     }
-}
+};

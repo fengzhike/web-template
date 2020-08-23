@@ -5,6 +5,7 @@
 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const babelConfig = require('./babel.config');
 const WebpackBar = require('webpackbar');
@@ -21,7 +22,7 @@ module.exports = (env) => {
         output: {
             publicPath: '/',
             path: path.resolve(`dist`),
-            filename: `js/[name]${isDev ? '' : '.[chunkhash:8]'}.js`
+            filename: `js/[name].${isDev ? '' : '[chunkhash:8]'}.js`
         },
         module: {
             rules: [
@@ -33,10 +34,14 @@ module.exports = (env) => {
                     }
                 },
                 {
+                    test: /\.vue$/,
+                    loader: 'vue-loader',
+                },
+                {
                     test: /\.css$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        'css-loader',
+                        'css-loader'
                     ]
                 },
                 {
@@ -70,6 +75,7 @@ module.exports = (env) => {
             ]
         },
         plugins: [
+            new VueLoaderPlugin(),
             new HtmlWebPackPlugin({
                 filename: `./index.html`,
                 template: path.resolve(`./public/index.html`),
@@ -82,19 +88,18 @@ module.exports = (env) => {
         resolve: {
             // 配置别名，在项目中可缩减引用路径，大写防止混淆
             alias: {
-                Src: path.resolve(`src`),
                 Assets: path.resolve(`src/assets`),
                 Component: path.resolve(`src/component`),
-                Http: path.resolve(`src/http`),
+                Http: path.resolve(`src/http`)
             }
         },
         optimization: {
             splitChunks: {
                 chunks: 'all',
                 cacheGroups: {
-                    lib: {
-                        test: /[\\/]node_modules[\\/](react|react-dom|react-router|mobx)[\\/]/,
-                        name: 'lib',
+                    vuelib: {
+                        test: /[\\/]node_modules[\\/](vue|vue-router|vuex)[\\/]/,
+                        name: 'vuelib',
                         chunks: 'all',
                     }
                 }
